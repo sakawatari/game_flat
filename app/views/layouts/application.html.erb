@@ -9,12 +9,23 @@
 </head>
 <body>
   <header>
-    <div class="logo">
-      Game Flat
+    <%= link_to "Game Flat", topics_path, class: 'logo' %>
+
+    <div class="dropdown pull-right">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><a href="#">フォローユーザー</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="#">ログイン</a></li>
+      </ul>
     </div>
   </header>
 
-<%= yield %>
+<div class="container">
+  <%= yield %>
+</div>
 
 </body>
 </html>
