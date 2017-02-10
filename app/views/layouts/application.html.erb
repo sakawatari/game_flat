@@ -9,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+  <p class="flash"><%= notice %><%= alert %></p>
   <header>
     <%= link_to "Game Flat", topics_path, class: 'logo' %>
 
@@ -19,7 +20,12 @@
       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
         <li><a href="#">フォローユーザー</a></li>
         <li role="separator" class="divider"></li>
-        <li><a href="#">ログイン</a></li>
+        <% if user_signed_in? %>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'ログイン', new_user_session_path  %></li>
+          <li><%= link_to 'サインアップ', new_user_registration_path %></li>
+        <% end %>
       </ul>
     </div>
   </header>
