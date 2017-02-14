@@ -13,6 +13,7 @@ gem 'twitter-bootstrap-rails'
 gem 'font-awesome-sass'
 gem 'jquery-turbolinks'
 gem 'devise'
+gem 'fog'
 
 
 group :development, :test do
