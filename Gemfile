@@ -29,6 +29,6 @@ group :development, :test do
   gem 'capistrano3-unicorn'
 end
 
-group :devepopment do
+group :development do
   gem 'letter_opener_web'
 end
