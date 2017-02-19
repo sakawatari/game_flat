@@ -17,6 +17,8 @@ gem 'fog'
 gem 'dotenv-rails'
 gem 'unicorn'
 gem 'therubyracer', platforms: :ruby
+gem 'rails_admin'
+gem 'cancan'
 
 group :development, :test do
   gem 'byebug'
