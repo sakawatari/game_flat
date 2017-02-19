@@ -18,10 +18,11 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new(topic_params)
-    @blog.user_id = current_user.id
+    @topic.user_id = current_user.id
     respond_to do |format|
       if @topic.save
         format.html { redirect_to @topic, notice: '投稿しました' }
+        NoticeMailer.sendmail_topic(@topic).deliver
       else
         format.html { render :new }
       end
