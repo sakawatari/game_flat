@@ -15,4 +15,10 @@
     <%= link_to '編集', edit_topic_path(@topic), class: 'btn-default' %>
     <%= link_to '戻る', topics_path, class: 'btn-default' %>
   </div>
+  <hr>
+  <p>コメント一覧</p>
+    <div id="comments_area">
+      <%= render partial: 'comments/index', locals: { comments: @comments, topic: @topic } %>
+    </div>
+    <%= render partial: 'comments/form', locals: { comment: @comment, topic: @topic } %>
 </div>
