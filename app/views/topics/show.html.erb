@@ -1,17 +1,18 @@
-<p>
-  <strong>Title:</strong>
-  <%= @topic.title %>
-</p>
-
-<p>
-  <strong>Game title:</strong>
-  <%= @topic.game_title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @topic.content %>
-</p>
-
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
-<%= link_to 'Back', topics_path %>
+<div class="show-topic-box">
+  <div class="user-box">
+    <%= profile_img(@topic.user) if profile_img(@topic.user) %>
+    <%= @topic.user.name %>
+    <%= @topic.created_at.strftime("%y/%m/%d %p %l:%M") %>
+  </div>
+  <div class="title-box">
+    <span class="title-tag"><%= @topic.title %></span>
+    <span class="game-title-tag"><%= @topic.game_title %></span>
+  </div>
+  <div class="content-box">
+    <%= @topic.content %>
+  </div>
+  <div class="btn-box">
+    <%= link_to '編集', edit_topic_path(@topic), class: 'btn-default' %>
+    <%= link_to '戻る', topics_path, class: 'btn-default' %>
+  </div>
+</div>

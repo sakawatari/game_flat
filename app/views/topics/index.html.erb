@@ -1,14 +1,26 @@
-<%= link_to '新しく投稿する', new_topic_path %>
-
-  <div class="topic-wrapper">
-    <% @topics.each do |topic| %>
-      <div class="topic-box">
-        <div><%= topic.title %></div>
-        <div><%= topic.game_title %></div>
-        <div><%= topic.content %></div>
-        <div><%= link_to 'Detail', topic, class: 'btn btn-default' %></div>
-        <div><%= link_to 'Edit', edit_topic_path(topic), class: 'btn btn-default' %></div>
-        <div><%= link_to 'Delete', topic, class: 'btn btn-danger', method: :delete, data: { confirm: '本当に削除しますか？' } %></div>
-      </div>
-    <% end %>
+<div class="topic-wrapper">
+  <div class="new-topic-box">
+    <%= link_to '新しく投稿する', new_topic_path %>
   </div>
+  <% @topics.each do |topic| %>
+    <div class="topic-box">
+      <div class="user-box">
+        <%= profile_img(topic.user) if profile_img(topic.user) %>
+        <%= topic.user.name %>
+        <%= topic.created_at.strftime("%y/%m/%d %p %l:%M") %>
+      </div>
+      <div class="title-box">
+        <span class="title-tag"><%= topic.title %></span>
+        <span class="game-title-tag"><%= topic.game_title %></span>
+      </div>
+      <div class="content-box">
+        <%= topic.content %>
+      </div>
+      <div class="btn-box">
+        <%= link_to '詳細', topic, class: 'btn-default' %>
+        <%= link_to '編集', edit_topic_path(topic), class: 'btn-default' %>
+        <%= link_to '削除', topic, class: 'btn-danger pull-right', method: :delete, data: { confirm: '本当に削除しますか？' } %>
+      </div>
+    </div>
+  <% end %>
+</div>

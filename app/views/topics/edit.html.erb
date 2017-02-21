@@ -1,6 +1,8 @@
-<h1>Editing Topic</h1>
+<div class="new-topic-wrapper">
+  <h1>編集画面</h1>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
-<%= link_to 'Show', @topic %> |
-<%= link_to 'Back', topics_path %>
+  <%= link_to '詳細', @topic, class: 'btn btn-default btn-block' %>
+  <%= link_to '戻る', topics_path, class: 'btn btn-default btn-block' %>
+</div>
