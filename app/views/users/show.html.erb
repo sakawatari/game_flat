@@ -1,0 +1,22 @@
+<h1>ユーザーデータ</h1>
+
+<div class="user-detail-wrapper col-md-7 col-sm-12 col-xs-12">
+  <div class="user-detail-name-box">
+    <%= profile_img(@user) %>
+    <%= @user.name %>
+  </div>
+  <div class="user-detail-follow-box">
+    <h4>フォローユーザー</h4>
+    <% @user.followed_users.each do |follow| %>
+    <ul>
+      <li><%= follow.name %></li>
+    </ul>
+    <% end %>
+    <h4>フォロワーユーザー</h4>
+    <% @user.followers.each do |follower| %>
+      <ul>
+        <li><%= follower.name %></li>
+      </ul>
+    <% end %>
+  </div>
+</div>
