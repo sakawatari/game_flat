@@ -1,13 +1,4 @@
 Rails.application.routes.draw do
-  root 'topics#index'
-  resources :topics do
-    resources :comments
-
-    collection do
-      post :confirm
-    end
-  end
-
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
@@ -16,4 +7,15 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
+
+  root 'topics#index'
+  resources :users, only: [:index]
+  resources :relationships, only: [:create, :destroy]
+  resources :topics do
+    resources :comments
+
+    collection do
+      post :confirm
+    end
+  end
 end

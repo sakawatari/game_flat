@@ -18,7 +18,7 @@
         <i class="fa fa-bars" aria-hidden="true"></i>
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <li><a href="#">フォローユーザー</a></li>
+        <li><%= link_to 'ユーザー検索', users_path if user_signed_in? %></li>
         <li role="separator" class="divider"></li>
         <% if user_signed_in? %>
           <li><%= link_to 'マイページ', edit_user_registration_path %></li>
