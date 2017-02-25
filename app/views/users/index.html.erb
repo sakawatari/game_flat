@@ -1,23 +1,17 @@
 <div class="user-wrapper">
-<h2>ユーザー</h2>
-<% @users.each do |user| %>
-<% if user.id != current_user.id %>
-  <li>
-    <div class="item">
-      <%= link_to user.name, user %>
-      <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
-    </div>
-    <%= render partial: 'follow_form', locals: { user: user } if signed_in?   %>
-  </li>
-<% end %>
-  <div class="user-box follow-user-box col-md-7 col-sm-12 col-xs-12 ">
-    <%= profile_img(user) %>
-    <%= render 'follow_form', user: user %>
-    <%= link_to 'ユーザー詳細', user_path(user), class: 'btn btn-xs btn-default pull-right' %>
-    <ul>
-      <li><%= user.name %></li>
-      <li><%= user.email %></li>
-    </ul>
-  </div>
-<% end %>
+  <h2>ユーザー</h2>
+  <% @users.each do |user| %>
+    <% if user.id != current_user.id %>
+      <div class="user-box follow-user-box col-md-7 col-sm-12 col-xs-12 ">
+        <%= profile_img(user) %>
+        <%= render partial: 'follow_form', locals: { user: user } if signed_in?   %>
+        <%= link_to 'ユーザー詳細', user_path(user), class: 'btn btn-xs btn-default pull-right' %>
+        <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', class: 'btn btn-xs btn-default pull-right' %>
+        <ul>
+          <li><%= user.name %></li>
+          <li><%= user.email %></li>
+        </ul>
+      </div>
+    <% end %>
+  <% end %>
 </div>
