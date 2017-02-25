@@ -1,0 +1,21 @@
+// Place all the styles related to the Conversations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.conversation-box {
+  height: 60px;
+  min-width: 250px;
+  background-color: #2c2c2c;
+  color: white;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.conversation-text {
+  margin-top: 5px;
+  width: 60%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+}

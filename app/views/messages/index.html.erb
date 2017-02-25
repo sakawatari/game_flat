@@ -1,0 +1,34 @@
+<h2>メッセージ一覧</h2>
+<% if @over_ten %>
+  <%= link_to '以前のメッセージを読み込む', '?m=all', class: 'btn btn-default read-btn' %>
+<% end %>
+
+<div class="ui segment">
+  <% @messages.each do |message| %>
+    <% if message.body %>
+      <% user = User.find(message.user_id) %>
+      <div class="item">
+        <div class="content">
+          <div class="header message-user"><strong><%= link_to user.name, user_path(user) %></strong> <%= message.message_time %></div>
+          <div class="list">
+            <div class="item message-body">
+              <i class="right triangle icon"></i>
+              <%= message.body %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
+  <div class="field">
+    <%= f.text_area :body, class: "form-control message-text-field", placeholder: 'メッセージを入力してください', autofocus: true %>
+  </div>
+    <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+  <div>
+    <%= f.submit "メッセージを送る", class: 'btn btn-default pull-right' %>
+  </div>
+
+<% end %>

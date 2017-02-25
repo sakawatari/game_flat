@@ -9,7 +9,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <p class="flash"><%= notice %><%= alert %></p>
   <header>
     <%= link_to "Game Flat", topics_path, class: 'logo' %>
 
@@ -19,6 +18,7 @@
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
         <li><%= link_to 'ユーザー検索', users_path if user_signed_in? %></li>
+        <li><%= link_to "メッセージ", conversations_path %></li>
         <li role="separator" class="divider"></li>
         <% if user_signed_in? %>
           <li><%= link_to 'マイページ', edit_user_registration_path %></li>
@@ -30,6 +30,7 @@
       </ul>
     </div>
   </header>
+  <p class="flash"><%= notice %><%= alert %></p>
 
 <div class="container">
   <%= yield %>
