@@ -6,11 +6,9 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.html { redirect_to topic_path(@topic), notice: 'コメントを投稿しました。' }
-        format.json { render :show, status: :created, location: @comment }
         format.js { render :index }
       else
-        format.html { render :new }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        format.html { redirect_to topic_path(@topic), notice: 'コメントを入力してください。' }
       end
     end
   end
