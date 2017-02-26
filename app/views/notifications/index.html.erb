@@ -1,0 +1,18 @@
+<h2>お知らせ</h2>
+<ul>
+  <% @notifications.each do |notification| %>
+  <hr>
+    <li>
+      <% if notification.read == true %>
+        <p class="read-label">既読</p>
+      <% else %>
+        <p class="unread-label">未読</p>
+      <% end %>
+      <p>
+        <%= notification.comment.user.try(:name) %>さんが
+        あなたの <%= link_to "#{notification.comment.topic.title}", topic_path(notification.comment.topic, notification_id: notification.id), class: 'btn btn-primary btn-xs' %> にコメントしました。
+      </p>
+      <p><%= notification.created_at %></p>
+    </li>
+  <% end %>
+</ul>

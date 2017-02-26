@@ -24,6 +24,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'pusher'
 
 group :development, :test do
   gem 'byebug'
