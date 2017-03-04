@@ -1,4 +1,6 @@
 <h2>メッセージ一覧</h2>
+<p><%= @conversation.recipient.name %>さんとメッセージを始めました。</p>
+
 <% if @over_ten %>
   <%= link_to '以前のメッセージを読み込む', '?m=all', class: 'btn btn-default read-btn' %>
 <% end %>
