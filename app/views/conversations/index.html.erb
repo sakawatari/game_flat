@@ -7,7 +7,9 @@
           <% if conversation.target_user(current_user).present? %>
             <li><%= conversation.target_user(current_user).name %></li>
           <% end %>
-          <li class="pull-left conversation-text"><%= conversation.messages.last.body %></li>
+          <% if conversation.messages.present? %>
+            <li class="pull-left conversation-text"><%= conversation.messages.last.body %></li>
+          <% end %>
           <li class="btn btn-default btn-xs pull-right"><%= link_to 'メッセージを確認', conversation_messages_path(conversation) %></li>
         </div>
       <% end %>
