@@ -5,8 +5,8 @@
       <div class="user-box follow-user-box">
         <%= profile_img(user) %>
         <%= render partial: 'follow_form', locals: { user: user } if signed_in?   %>
-        <%= link_to 'ユーザー詳細', user_path(user), class: 'btn btn-default pull-right' %>
         <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', class: 'btn btn-default pull-right' %>
+        <%= link_to 'ユーザー詳細', user_path(user), class: 'btn btn-default pull-right' %>
         <ul>
           <li><%= user.name %></li>
           <li><%= user.email %></li>

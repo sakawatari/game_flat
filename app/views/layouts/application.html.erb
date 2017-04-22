@@ -27,25 +27,31 @@
 <body>
   <header>
     <%= link_to "Game Flat", topics_path, class: 'logo' %>
-    <div class="dropdown pull-right">
-      <%= link_to  notifications_index_path do %>
-        <i class="fa fa-bell fa-1x notice-btn"><span id="unread_count"><%= @notifications_count %></span></i>
-      <% end %>
-      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        <i class="fa fa-bars" aria-hidden="true"></i>
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <li><%= link_to 'ユーザー検索', users_path if user_signed_in? %></li>
-        <li><%= link_to "メッセージ", conversations_path %></li>
-        <li role="separator" class="divider"></li>
-        <% if user_signed_in? %>
-          <li><%= link_to 'マイページ', edit_user_registration_path %></li>
-          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to 'ログイン', new_user_session_path  %></li>
-          <li><%= link_to 'サインアップ', new_user_registration_path %></li>
+    <div class="pull-right">
+      <% if user_signed_in? %>
+        <%= link_to  notifications_index_path, title: "通知" do %>
+          <i class="fa fa-bell fa-1x fa-btn"><span id="unread_count"><%= @notifications_count %></span></i>
         <% end %>
-      </ul>
+        <%= link_to users_path, title: "ユーザー検索" do %>
+          <i class="fa fa-search fa-1x fa-btn"></i>
+        <% end %>
+        <%= link_to conversations_path, title: "メッセージ" do %>
+          <i class="fa fa-commenting fa-1x fa-btn"></i>
+        <% end %>
+        <%= link_to edit_user_registration_path, title: "マイページ" do %>
+          <i class="fa fa-user fa-1x fa-btn"></i>
+        <% end %>
+        <%= link_to destroy_user_session_path, title: "ログアウト", method: :delete do %>
+          <i class="fa fa-sign-out fa-1x fa-btn"></i>
+        <% end %>
+      <% else %>
+        <%= link_to new_user_session_path, title: "ログイン" do %>
+          <i class="fa fa-sign-in fa-1x fa-btn"></i>
+        <% end %>
+        <%= link_to new_user_registration_path, title: "サインアップ" do %>
+          <i class="fa fa-user-plus fa-1x fa-btn"></i>
+        <% end %>
+      <% end %>
     </div>
   </header>
   <p class="flash"><%= notice %><%= alert %></p>
@@ -55,7 +61,7 @@
 </div>
 
   <footer>
-    <p> &copy; 2016 Copyright KAZAKUMO GAMES Corp.</p>
+    <p> &copy; 2016 Copyright KAZAKUMO Corp.</p>
   </footer>
 </body>
 </html>

@@ -7,7 +7,7 @@
       <div class="user-box">
         <%= profile_img(topic.user) if profile_img(topic.user) %>
         <%= topic.user.name %>
-        <%= topic.created_at.strftime("%y/%m/%d %p %l:%M") %>
+        <span class="pull-right"><%= topic.created_at.strftime("%y/%m/%d %p %l:%M") %></span>
       </div>
       <div class="title-box">
         <span class="title-tag"><%= topic.title %></span>
