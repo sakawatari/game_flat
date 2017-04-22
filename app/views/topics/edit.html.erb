@@ -1,8 +1,8 @@
-<div class="new-topic-wrapper">
+<div class="wrapper col-md-4 col-md-offset-4 col-sm-10">
   <h1>編集画面</h1>
 
   <%= render 'form' %>
 
-  <%= link_to '詳細', @topic, class: 'btn btn-default btn-block' %>
-  <%= link_to '戻る', topics_path, class: 'btn btn-default btn-block' %>
+  <%= link_to '詳細', @topic, class: 'btn btn-default' %>
+  <%= link_to '戻る', topics_path, class: 'btn btn-default' %>
 </div>

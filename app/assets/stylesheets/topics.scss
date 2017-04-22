@@ -1,35 +1,31 @@
 // Place all the styles related to the Topics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.new-topic-wrapper {
-  width: 50%;
-  margin: auto;
-}
 
 // index
-.topic-wrapper {
-  width: 100%;
-}
-
 .new-topic-box {
   background-color: #2C2C2C;
   margin: 10px 0;
-  padding: 10px;
-  width: 70%;
   color: white;
   text-align: center;
 }
 
 .new-topic-box a {
+  padding: 10px;
   color: white;
   display: block;
+  transition: 0.3s;
+}
+
+.new-topic-box a:hover {
+  background-color: #696969;
 }
 
 .topic-box {
-  width: 70%;
   margin-bottom: 20px;
   color: white;
   background-color: #2C2C2C;
+  transition: 0.3s;
 }
 
 .user-box img {
@@ -63,11 +59,13 @@
 }
 
 .btn-box {
-  padding: 5px;
+  margin: 5px;
+  padding-bottom: 5px;
 }
 
-.btn-box a {
-  padding: 2px;
+.show-btn {
+  width: 50px;
+  background-color: white;
 }
 
 // show

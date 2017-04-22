@@ -1,9 +1,16 @@
-<h1>ユーザーデータ</h1>
+<h2>ユーザーデータ</h2>
 
-<div class="user-detail-wrapper col-md-7 col-sm-12 col-xs-12">
+<div class="wrapper col-md-4 col-md-offset-4 col-sm-10">
   <div class="user-detail-name-box">
     <%= profile_img(@user) %>
     <%= @user.name %>
+  </div>
+  <div class="user-detail-btn-box">
+    <%= link_to '戻る', users_path, class: 'btn btn-default pull-left' %>
+    <% if @user.id != current_user.id %>
+      <%= render partial: 'follow_form', locals: { user: @user } if signed_in?   %>
+      <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class: 'btn btn-default pull-right' %>
+    <% end %>
   </div>
   <div class="user-detail-follow-box">
     <h4>フォローユーザー</h4>

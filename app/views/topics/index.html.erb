@@ -1,4 +1,4 @@
-<div class="topic-wrapper">
+<div class="topic-wrapper col-md-4 col-md-offset-4 col-sm-10">
   <div class="new-topic-box">
     <%= link_to '新しく投稿する', new_topic_path %>
   </div>
@@ -16,13 +16,13 @@
       <div class="content-box">
         <%= topic.content %>
       </div>
-        <div class="btn-box">
-          <%= link_to '詳細', topic, class: 'btn-default' %>
-          <% if topic.user_id == current_user.id %>
-            <%= link_to '編集', edit_topic_path(topic), class: 'btn-default' %>
-            <%= link_to '削除', topic, class: 'btn-default pull-right', method: :delete, data: { confirm: '本当に削除しますか？' } %>
-          <% end %>
-        </div>
+      <div class="btn-box">
+        <%= link_to '詳細', topic, class: 'btn btn-default' %>
+        <% if topic.user_id == current_user.id %>
+          <%= link_to '編集', edit_topic_path(topic), class: 'btn btn-default' %>
+          <%= link_to '削除', topic, class: 'btn btn-danger pull-right', method: :delete, data: { confirm: '本当に削除しますか？' } %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>

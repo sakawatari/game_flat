@@ -1,26 +1,28 @@
-<div class="show-topic-box">
-  <div class="user-box">
-    <%= profile_img(@topic.user) if profile_img(@topic.user) %>
-    <%= @topic.user.name %>
-    <%= @topic.created_at.strftime("%y/%m/%d %p %l:%M") %>
-  </div>
-  <div class="title-box">
-    <span class="title-tag"><%= @topic.title %></span>
-    <span class="game-title-tag"><%= @topic.game_title %></span>
-  </div>
-  <div class="content-box">
-    <%= @topic.content %>
-  </div>
-  <div class="btn-box">
-    <% if @topic.user_id == current_user.id %>
-      <%= link_to '編集', edit_topic_path(@topic), class: 'btn-default' %>
-    <% end %>
-    <%= link_to '戻る', topics_path, class: 'btn-default' %>
-  </div>
-  <hr>
-  <p>コメント一覧</p>
-    <div id="comments_area">
-      <%= render partial: 'comments/index', locals: { comments: @comments, topic: @topic } %>
+<div class="wrapper col-md-4 col-md-offset-4 col-sm-10">
+  <div class="show-topic-box">
+    <div class="user-box">
+      <%= profile_img(@topic.user) if profile_img(@topic.user) %>
+      <%= @topic.user.name %>
+      <%= @topic.created_at.strftime("%y/%m/%d %p %l:%M") %>
     </div>
-    <%= render partial: 'comments/form', locals: { comment: @comment, topic: @topic } %>
+    <div class="title-box">
+      <span class="title-tag"><%= @topic.title %></span>
+      <span class="game-title-tag"><%= @topic.game_title %></span>
+    </div>
+    <div class="content-box">
+      <%= @topic.content %>
+    </div>
+    <div class="btn-box">
+      <% if @topic.user_id == current_user.id %>
+        <%= link_to '編集', edit_topic_path(@topic), class: 'btn btn-default' %>
+      <% end %>
+      <%= link_to '戻る', topics_path, class: 'btn btn-default' %>
+    </div>
+    <hr>
+    <p>コメント一覧</p>
+      <div id="comments_area">
+        <%= render partial: 'comments/index', locals: { comments: @comments, topic: @topic } %>
+      </div>
+      <%= render partial: 'comments/form', locals: { comment: @comment, topic: @topic } %>
+  </div>
 </div>
