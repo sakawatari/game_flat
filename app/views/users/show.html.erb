@@ -1,5 +1,4 @@
 <h2>ユーザーデータ</h2>
-
 <div class="wrapper col-md-4 col-md-offset-4 col-sm-10">
   <div class="user-detail-name-box">
     <%= profile_img(@user) %>
@@ -28,4 +27,24 @@
       </ul>
     <% end %>
   </div>
+  <h2>トピック一覧</h2>
+  <% @user.topics.each do |topic| %>
+    <div class="topic-box">
+      <div class="user-box">
+        <%= profile_img(topic.user) if profile_img(topic.user) %>
+        <%= topic.user.name %>
+        <span class="pull-right"><%= topic.created_at.strftime("%y/%m/%d %p %l:%M") %></span>
+      </div>
+      <div class="title-box">
+        <span class="title-tag"><%= topic.title %></span>
+        <span class="game-title-tag"><%= topic.game_title %></span>
+      </div>
+      <div class="content-box">
+        <%= topic.content %>
+      </div>
+      <div class="btn-box">
+        <%= link_to 'トピックを見る', topic, class: 'btn btn-default' %>
+      </div>
+    </div>
+  <% end %>
 </div>

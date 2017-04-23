@@ -13,7 +13,13 @@
         <% user = User.find(message.user_id) %>
         <div class="item">
           <div class="content">
-            <div class="header message-user"><strong><%= link_to user.name, user_path(user) %></strong> <%= message.message_time %></div>
+            <div class="header">
+              <% if current_user == user %>
+                <strong class="btn btn-xs btn-primary"><%= user.name %></strong> <%= message.message_time %>
+              <% else %>
+                <strong class="btn btn-xs btn-default"><%= link_to user.name, user_path(user) %></strong> <%= message.message_time %>
+              <% end %>
+            </div>
             <div class="list">
               <div class="item message-body">
                 <i class="right triangle icon"></i>
